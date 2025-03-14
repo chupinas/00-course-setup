@@ -1,4 +1,4 @@
-package com.epam.training.gen.ai;
+package com.epam.training.gen.ai.examples.semantic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,8 +8,8 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:/config/application.properties")
 public class GenAiTrainingApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GenAiTrainingApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GenAiTrainingApplication.class, args);
+    }
 
 }
