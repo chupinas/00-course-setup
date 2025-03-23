@@ -31,7 +31,7 @@ public class ChatBotController {
     @GetMapping
     public Map<String, String> getChatbotResponse(@RequestParam String input) {
         ChatHistory history = new ChatHistory();
-        history.addUserMessage("I want to find top-10 books about world history");
+        history.addUserMessage(input);
 
         List<ChatMessageContent<?>> response = chatCompletionService.getChatMessageContentsAsync(
                 history,
