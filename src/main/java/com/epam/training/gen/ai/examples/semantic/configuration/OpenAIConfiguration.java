@@ -3,6 +3,7 @@ package com.epam.training.gen.ai.examples.semantic.configuration;
 import com.azure.ai.openai.OpenAIAsyncClient;
 import com.azure.ai.openai.OpenAIClientBuilder;
 import com.azure.core.credential.AzureKeyCredential;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,10 +23,11 @@ public class OpenAIConfiguration {
      * @return an instance of {@link OpenAIAsyncClient}
      */
     @Bean
-    public OpenAIAsyncClient openAIAsyncClient() {
+    public OpenAIAsyncClient openAIAsyncClient(@Value("${client-azureopenai-key}") String openaiKey,
+                                               @Value("${client-azureopenai-endpoint}") String openaiEndpoint) {
         return new OpenAIClientBuilder()
-                .credential(new AzureKeyCredential("Your Azure OpenAI Service API Key"))
-                .endpoint("Your Azure OpenAI Service Endpoint")
+                .credential(new AzureKeyCredential(openaiKey))
+                .endpoint(openaiEndpoint)
                 .buildAsyncClient();
     }
 }
